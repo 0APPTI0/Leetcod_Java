@@ -13,7 +13,8 @@ package com.LeetCode;
 public class question2 {
 
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode result = new ListNode(0);
+        ListNode head = new ListNode(0), cuur = head;
+
         //计算出每一位的值并且判断是否有进位
         int hasCarry = 0;
         while (true){
@@ -23,28 +24,28 @@ public class question2 {
                 bit -= 10;
                 hasCarry = 1;
             }
-            //ListNode temp = new ListNode(bit);
-            ListNode presentNode = getLastNode(result);
-            presentNode.next = new ListNode(bit);
+            cuur.next = new ListNode(bit);
+            cuur = cuur.next;
             l1 = l1.next;
             l2 = l2.next;
-            if (l1 == null || l2 == null){
+            if (l1 == null && l2 == null){
+                if (hasCarry == 1){
+                    cuur.next = new ListNode(1);
+                }
                 break;
+            }
+            else if (l1 == null && l2 != null ){
+                l1 = new ListNode(0);
+            }
+            else if (l1 != null && l2 == null){
+                l2 = new ListNode(0);
             }
         }
 
-        return result.next;
+        return head.next;
     }
 
 
-    //返回当前list中的最后一个节点
-    public ListNode getLastNode(ListNode a){
-        ListNode temp = null;
-        while (a.next != null){
-            temp = a.next;
-        }
-        return temp;
-    }
 
 }
 
