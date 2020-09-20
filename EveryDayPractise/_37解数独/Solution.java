@@ -1,6 +1,13 @@
 package _37解数独;
 
+<<<<<<< HEAD
 class Solution {
+=======
+/**
+ * 本题参照题解实现
+ */
+public class Solution {
+>>>>>>> e01a44fe4e0fe8b1bf4bbb17bd092659b40e8f4f
     public void solveSudoku(char[][] board) {
         // 三个布尔数组 表明 行, 列, 还有 3*3 的方格的数字是否被使用过
         boolean[][] rowUsed = new boolean[9][10];
@@ -56,4 +63,8 @@ class Solution {
         }
         return false;
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> e01a44fe4e0fe8b1bf4bbb17bd092659b40e8f4f
